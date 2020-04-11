@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  lotus:
+    build: .
+    container_name: lotus
+    ports:
+      - "1234:1234"
+    networks:
+     app_net:
+       ipv4_address: 172.16.238.10
+networks: 
+  app_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.16.238.0/24"
